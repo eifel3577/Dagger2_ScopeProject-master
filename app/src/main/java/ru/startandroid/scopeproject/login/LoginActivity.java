@@ -47,7 +47,8 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    /** */
+    /**после почучения обьекта аккаунта от презентера создаем MailComponent и стартуем FolderListActivity.
+    соответственно предыдущий компонент LoginActivityComponent уничтожается и может быть почищен сборщиком мусора */
     void showMailForAccount(Account account) {
         App.getInstance().createMailComponent(account);
         startActivity(new Intent(this, FolderListActivity.class));
