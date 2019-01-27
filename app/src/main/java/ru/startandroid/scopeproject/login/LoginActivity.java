@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         ActivityScope*/
         LoginActivityComponent loginActivityComponent = App.getInstance().getAppComponent().createLoginComponent();
 
+        /**получаем все зависимости нужные для работы LoginActivity */
         loginActivityComponent.injectLoginActivity(this);
 
         userEditText = (EditText)findViewById(R.id.user);
@@ -46,11 +47,13 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /** */
     void showMailForAccount(Account account) {
         App.getInstance().createMailComponent(account);
         startActivity(new Intent(this, FolderListActivity.class));
     }
 
+    /**этот метод помечен иджектом.Это значит что даггер после заполнения всех полей вызовет этот метод */
     @Inject
     void setActivity() {
         presenter.setActivity(this);
