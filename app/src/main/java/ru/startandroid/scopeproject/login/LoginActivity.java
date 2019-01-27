@@ -15,6 +15,7 @@ import ru.startandroid.scopeproject.folders.FolderListActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
+    /**получаем презентер для работы.Он предоставляется компонентом LoginActivityComponent */
     @Inject
     LoginActivityPresenter presenter;
 
@@ -26,6 +27,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        /**получаем LoginActivityComponent.Для этого вызываем инстанс апп класса,с помощью него создаем AppComponent,а у него 
+        запрашиваем создание LoginActivityComponent.Поскольку мы создаем LoginActivityComponent в onCreate() LoginActivity,то 
+        время жизни (скоуп) этого компонента будет такое же как время жизни этого активити.Это подчеркивается названием скоупа
+        ActivityScope*/
         LoginActivityComponent loginActivityComponent = App.getInstance().getAppComponent().createLoginComponent();
 
         loginActivityComponent.injectLoginActivity(this);
