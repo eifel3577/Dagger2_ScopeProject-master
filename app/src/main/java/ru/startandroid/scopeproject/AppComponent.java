@@ -11,6 +11,7 @@ import ru.startandroid.scopeproject.mail.MailModule;
 /**AppComponent - создается на все время работы приложения. Соответственно, объекты, которые он
  *  умеет создавать и которые имеют тот же scope, что и у него, будут синглтонами на протяжении
  *  жизни этого компонента. В данном примере - это класс по работе с сетью ApiService. */
+/**у AppComponent есть сабкомпоненты LoginActivityComponent и MailComponent  */
 @Singleton
 @Component(modules = {ApiModule.class})
 public interface AppComponent {
